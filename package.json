@@ -1,0 +1,21 @@
+{
+  "name": "arun_kataria",
+  "version": "1.0.0",
+  "description": "login logout flow",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "arun_kataria",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-ui-router": "^0.4.2",
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.2",
+    "jquery": "^3.3.1",
+    "mongoose": "^4.9.1",
+    "ngstorage": "^0.3.11"
+  }
+}

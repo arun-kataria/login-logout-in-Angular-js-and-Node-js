@@ -1,0 +1,33 @@
+<h2 ng-show="user._id!=null">Edit</h2>
+<h2 ng-hide="user._id!=null">Create</h2>
+<hr>
+<form name="userForm" ng-submit="saveData(user)" novalidate class="form-horizontal">
+ <div class="form-group">
+ <label class="col-md-2">Name</label>
+ <div class="col-md-10">
+ <input type="text" ng-model="user.name" name="name" ng-required="true" class="form-control"/>
+ <p ng-show="userForm.name.$error.required && (userForm.$submitted || userForm.name.$dirty)" class="text-danger">Please Enter Name</p>
+ </div>
+ </div>
+ <div class="form-group">
+ <label class="col-md-2">User Name</label>
+ <div class="col-md-10">
+ <input name="userName" ng-model="user.userName" ng-pattern="/^[a-zA-Z0-9. ]*[a-zA-Z0-9]$/" ng-required="true" class="form-control"/>
+ <p ng-show="((userForm.$submitted || userForm.userName.$dirty) && userForm.userName.$invalid) || ((userForm.$submitted || userForm.userName.$dirty) && userForm.userName.$error.required)" class="text-danger">Please Enter Valid User Name</p>
+ </div>
+ </div>
+ <div class="form-group">
+ <label class="col-md-2">Password</label>
+ <div class="col-md-10">
+ <input type="text" ng-model="user.password" ng-pattern="/^[a-zA-Z0-9. ]*[a-zA-Z0-9]$/"  name="password" ng-required="true" class="form-control"/>
+ <p ng-show="((userForm.$submitted || userForm.password.$dirty) && userForm.password.$invalid) || ((userForm.$submitted || userForm.password.$dirty) && userForm.password.$error.required)" class="text-danger">Please Enter Valid Password</p>
+ </div>
+ </div>
+ <div class="form-group">
+ <div class="col-md-offset-2 col-md-10">
+ <input type="submit" value="Update" class="btn btn-primary" ng-show="user._id!=null"/>
+ <input type="submit" value="Save" class="btn btn-primary" ng-hide="user._id!=null"/>
+ <a ui-sref="users" class="btn btn-warning">Cancel</a>
+ </div>
+ </div>
+</form>

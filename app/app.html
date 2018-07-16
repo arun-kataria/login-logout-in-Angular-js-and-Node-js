@@ -1,0 +1,45 @@
+<!DOCTYPE Arun Kataria>
+<html ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="angular/angular.js"></script>
+    <script src="jquery/dist/jquery.min.js"></script>
+    <script src="angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="ngstorage/ngStorage.min.js"></script>
+    <script src="app.js"></script>
+    <script src="services/service.js"></script>
+    <script src="controllers/user.controller.js"></script>
+    <script src="controllers/login.controller.js"></script>
+    <script src="controllers/logout.controller.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="home">Arun Kataria</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li ng-if='isAdmin'><a ui-sref="users">User List</a></li>
+                <li ng-if='isAdmin'><a ui-sref="create">Create User</a></li>
+                <li ng-if='!userLogin'><a ui-sref="login">Login</a></li>
+                <li ng-if='userLogin'><a ui-sref="logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <ui-view></ui-view>
+    </div>
+    <div class="error alert alert-danger fade">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>Error! </strong>{{message}}
+    </div>
+    <div class="success alert alert-success fade">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>Success!</strong> {{message}}
+    </div>
+</body>
+</html>
